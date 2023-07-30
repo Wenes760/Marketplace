@@ -76,36 +76,37 @@
                     <table class="table table-striped table-sm ">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Username</th>
+                                <th scope="col">Kode</th>
+                                <th scope="col">Nama Kategori</th>
                                 <th scope="col">Role</th>
                                 <th scope="col">xyz</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($users as $user)
+                            @foreach ($category as $user)
 
                                 <tr>
-                                    <th scope="row">{{ $loop->iteration }}</th>
+                                    
+                                    <td class="text-capitalize">{{$user->id}}</td>
                                     <td class="text-capitalize">{{ $user->name }}</td>
-                                    <td>
+                                    {{-- <td>
                                         @if ($user->hasRole('user'))
                                             User
                                         @endif
                                         @if ($user->hasRole('mitra'))
                                             Mitra
                                         @endif
-                                    </td>
-                                    <td><button type="button" class="btn btn-sm btn-primary" data-mdb-toggle="modal"
+                                    </td> --}}
+                                    {{-- <td><button type="button" class="btn btn-sm btn-primary" data-mdb-toggle="modal"
                                             data-mdb-target="#user{{ $user->id }}">
                                             Lihat
                                         </button></td>
-                                </tr>
+                                </tr> --}}
                                 <!-- Button trigger modal -->
 
 
                                 <!-- Modal -->
-                                <div class="modal top fade" id="user{{ $user->id }}" tabindex="-1"
+                                {{-- <div class="modal top fade" id="user{{ $user->id }}" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true"
                                     data-mdb-keyboard="true">
                                     <div class="modal-dialog   modal-dialog-centered">
@@ -121,14 +122,14 @@
                                                         <label class="pr-4">Username</label>
                                                         <input class="form-control mx-3 bg-transparent border-0" type="text"
                                                             value="{{ $user->name }}" disabled>
-                                                    </div>
-                                                    <div class="input-group form-group">
+                                                    </div> --}}
+                                                    {{-- <div class="input-group form-group">
                                                         <label class="pr-4"
                                                             style="margin-right: 25px">Email</label>
                                                         <input class="form-control mx-4 bg-transparent border-0" type="text"
                                                             value="{{ $user->email }}" disabled>
-                                                    </div>
-                                                    <div class="input-group form-group">
+                                                    </div> --}}
+                                                    {{-- <div class="input-group form-group">
                                                         <label class="pr-4" style="margin-right: 12px">No.
                                                             Telp</label>
                                                         <input name="no_telp" id="no_telp"
@@ -166,16 +167,16 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             @endforeach
                         </tbody>
-                        <caption>
+                        {{-- <caption>
                             Daftar pengguna
-                        </caption>
+                        </caption> --}}
 
                     </table>
                 </div>
-                {{ $users->links() }}
+                {{-- {{ $users->links() }} --}}
 
             </div>
         </div>

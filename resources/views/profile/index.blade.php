@@ -10,7 +10,7 @@
                 <!-- Button trigger modal -->
                 <!-- Modal -->
 
-                <div class="modal top fade" id="img-profile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+                {{-- <div class="modal top fade" id="img-profile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
                     data-mdb-backdrop="static" data-mdb-keyboard="true">
                     <div class="modal-dialog   modal-dialog-centered">
                         <div class="modal-content">
@@ -34,7 +34,7 @@
                             </form>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <!-- Modal -->
             @endif
         @endauth
@@ -44,9 +44,9 @@
                 <div class="row d-flex justify-content-center align-items-center h-100">
                     <div class="col col-lg-9 col-xl-12">
                         <div class="card">
-                            <div class="rounded-top text-white d-flex flex-row"
-                                style="background-color: #000; height:200px;">
-                                <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
+                            {{-- <div class="rounded-top text-white d-flex flex-row"
+                                style="background-color: #000; height:200px;"> --}}
+                                {{-- <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
                                     <img src="{{ asset('assets/avatar/' . $users->avatar) }}"
                                         alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
                                         style="width: 150px; z-index: 1" @auth @if ($users->id == Auth::user()->id) data-mdb-toggle="modal"
@@ -59,8 +59,8 @@
                                         @endif
                                     @endauth
 
-                                </div>
-                                <div class="ms-3" style="margin-top: 130px;">
+                                </div> --}}
+                                {{-- <div class="ms-3" style="margin-top: 130px;">
                                     <h5 class="text-capitalize">{{ $users->name }}</h5>
                                     <p>{{ $users->email }}</p>
                                 </div>
@@ -81,12 +81,12 @@
                                         <p class="small text-muted mb-0">Favorite</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="card-body p-4 text-black">
                                 @auth
 
-                                    @if ($users->id == Auth::user()->id)
+                                    {{-- @if ($users->id == Auth::user()->id)
                                         <div class="mb-5">
                                             <p class="lead fw-normal mb-1">Profile Saya</p>
                                             <div class="p-4" style="background-color: #f8f9fa;">
@@ -140,9 +140,9 @@
                                             }
 
                                         </style>
-                                    @endif
+                                    @endif --}}
                                 @endauth
-                                <div class="mb-5 umum">
+                                {{-- <div class="mb-5 umum">
                                     <p class="lead fw-normal mb-1 text-capitalize">Profile {{ $users->name }}</p>
                                     <div class="p-4" style="background-color: #f8f9fa;">
                                         <div class="input-group form-group">
@@ -172,6 +172,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                --}}
 
                                 @if ($users->hasRole('mitra|admin'))
 
@@ -187,7 +188,7 @@
                                             @endif
                                         @endauth
                                     </div>
-                                @endif
+                                @endif  
 
                                 <div class="row g-2">
                                     @if (count($product) == 0)

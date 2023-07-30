@@ -23,11 +23,6 @@
         }
 
     </style>
-    @if (Request::url() != 'route("login")')
-        <link rel="stylesheet" href="{{ asset('assets/css/number.css') }}">
-        <style>header{display:none;}</style>
-    @endif
-
     @if (Request::url() != 'route("shop.product")')
         <link rel="stylesheet" href="{{ asset('assets/css/number.css') }}">
     @endif
@@ -39,7 +34,26 @@
 </head>
 
 <body>
-    
+    <header>
+        <!-- Intro settings -->
+        <style>
+            /* Default height for small devices */
+            #intro-example {
+                height: 400px;
+            }
+
+            /* Height for devices larger than 992px */
+            @media (min-width: 992px) {
+                #intro-example {
+                    height: 600px;
+                }
+            }
+
+        </style>
+
+        @include('layouts.pages.partial.navbar')
+
+    </header>
     @if (Session::has('sweet_alert.alert'))
         <script>
             swal({!! Session::get('sweet_alert.alert') !!});
