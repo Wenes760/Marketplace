@@ -31,13 +31,13 @@ Route::get('/', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 // Route::resource('students',App\Http\Livewire\Ongkir::class);
-Route::get('/ongkir',App\Http\Livewire\Ongkir::class,'render')->name('ongkir')->middleware(['auth']); //product
+Route::get('/ongkir', App\Http\Livewire\Ongkir::class, 'render')->name('ongkir')->middleware(['auth']); //product
 // Route::get('/',[OrderController::class,'index']);
 
 
-Route::get('/checkout',[App\Http\Livewire\checkout::class,'render']);
+Route::get('/checkout', [App\Http\Livewire\checkout::class, 'render']);
 
 
 Route::get('/shop/tag', [ProductController::class, 'tag'])->name('shop.tag'); //index
@@ -104,7 +104,7 @@ Route::post('/proifle/avatar', [ProfileController::class, 'updAvatar'])->name('p
 // ratting
 Route::get('/ratting/add/{id}', [RattingController::class, 'addRat'])->name('rat.addRat');  // add
 Route::get('/ratting/upd/{id}', [RattingController::class, 'updRat'])->name('rat.updRat');  // add
-Route::get('/ratting/show/{id}', [RattingController::class, 'showRat'])->name('shop.elements.ratting'); 
+Route::get('/ratting/show/{id}', [RattingController::class, 'showRat'])->name('shop.elements.ratting');
 
 // stars
 Route::get('/stars/{id}', [RattingController::class, 'stars'])->name('shop.elements.stars'); //stars
@@ -115,4 +115,3 @@ Route::get('/admin/shop', [AdminController::class, 'product'])->name('admin.prod
 
 
 //livewire
-

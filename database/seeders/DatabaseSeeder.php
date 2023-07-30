@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use app\Province;
 use app\City;
+
 class DatabaseSeeder extends Seeder
 {
     /**
