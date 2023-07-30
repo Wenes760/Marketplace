@@ -112,6 +112,6 @@ Route::get('/stars/{id}', [RattingController::class, 'stars'])->name('shop.eleme
 // admin
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard')->middleware(['auth', 'role:admin']); //dashboard
 Route::get('/admin/shop', [AdminController::class, 'product'])->name('admin.product')->middleware(['auth', 'role:admin']); //product
-
+Route::get('/admin/kategori', [AdminController::class, 'kategori'])->name('admin.kategori')->middleware(['auth', 'role:admin']); //product
 
 //livewire

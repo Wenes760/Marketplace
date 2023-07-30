@@ -29,19 +29,63 @@
         display: none;
       }
     </style>
-  @endif
+    @if (Request::url() != 'route("shop.product")')
+      <link rel="stylesheet" href="{{ asset('assets/css/number.css') }}">
+    @endif
 
-  @if (Request::url() != 'route("shop.product")')
-    <link rel="stylesheet" href="{{ asset('assets/css/number.css') }}">
-  @endif
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
 </head>
 
 <body>
+  <header>
+    <!-- Intro settings -->
+    <style>
+      /* Default height for small devices */
+      #intro-example {
+        height: 400px;
+      }
+
+      /* Height for devices larger than 992px */
+      @media (min-width: 992px) {
+        #intro-example {
+          height: 600px;
+        }
+      }
+    </style>
+
+    @include('layouts.pages.partial.navbar')
+
+  </header>
+  @if (Session::has('sweet_alert.alert'))
+    <script>
+      swal({!! Session::get('sweet_alert.alert') !!});
+    </script>
+  @endif
+  <div class="container mt-2">
+    @if ($errors->any())
+      <div class="alert alert-danger" role="alert">
+        <ul>
+          @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+      </div>
+    @endif
+    @if (Session::has('success'))
+      <div class="alert alert-success text-center">
+        <p>{{ Session::get('success') }}</p>
+      </div>
+    @endif
+  </div>
+  @yield('content')
+
+  <script src="{{ asset('assets/js/jquery-3.6.0.js') }}"></script>
+  <script src="{{ asset('css/ratting.js') }}"></script>
+  <script src="{{ asset('assets/js/mdb.min.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
 
   @if (Session::has('sweet_alert.alert'))
     <script>

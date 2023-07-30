@@ -33,4 +33,18 @@ class AdminController extends Controller
         $category = Category::all();
         return view('admin.product', compact('product', 'category'));
     }
+
+
+    public function kategori(Request $request)
+    {
+        // if ($request->has(['name'])) { 
+        //     $category= Category::where('name', 'LIKE', '%'.$request->name. '%')
+        //                             ->orderBy('id', 'DESC')->simplePaginate(10);
+        // }else {
+        //     $users = User::where('id', '!=', Auth::id())->simplePaginate(10);
+        // }
+         $category = Category::all();
+   
+        return view('admin.kategori', compact('category'));
+    }
 }

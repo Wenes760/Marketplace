@@ -30,6 +30,7 @@
                                     </div>
                                 </a>
                                 <a href="{{ route('admin.product') }}"
+                                    
                                     class="list-group-item list-group-item-action rounded-6 {{ Route::is('admin.product') ? 'active' : '' }} mt-3"
                                     style="margin-bottom: 40vh">
                                     <div class="row">
@@ -39,6 +40,7 @@
                                             <span class="fs-6 ">Product</span>
                                         </div>
                                     </div>
+                                   
                                 </a>
 
 
@@ -49,21 +51,21 @@
                 </nav>
             </div>
             <div class="col-lg-8 badan">
-                <div class="card">
-                    <div class="card-body">
-                        <form action="{{ route('admin.product') }}">
-                            <div class="input-group rounded">
-                                <input type="search" class="form-control rounded" name="title" placeholder="Cari Produk"
-                                    aria-label="Search" value="{{ request('title') }}" aria-describedby="search-addon" />
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                @include('shop.modal.modal_add_product')
                 <div class="card mt-2">
                     <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            {{-- <p class="lead fw-normal mb-0">Produk {{ $users->name }}</p> --}}
+
+                            @auth
+
+                                {{-- @if ($users->id == Auth::user()->id) --}}
+                                    <button class="btn btn-success" data-mdb-toggle="modal"
+                                        data-mdb-target="#exampleModal">Tambah
+                                        Produk</button>
+                                {{-- @endif --}}
+                            @endauth
+                        </div>
                         <div class="row g-2">
                             <marquee>Produk yg anda cari tidak tersedia 😇</marquee>
 
@@ -86,7 +88,7 @@
 
                                     <img src="{{ asset('product/' . json_decode($prod->foto)[0]) }}"
                                         class="card-img-top img-fluid rounded-6" alt="Sunset Over the Sea"
-                                        style="height: 100px; object-position: center;overflow: hidden;object-fit: cover;" />
+                                        style="" />
 
                                     <div class="card rounded-6 mt-n4">
                                         <div class="card-body">
@@ -125,7 +127,7 @@
                         </div>
                     </div>
                 </div>
-
+                
             </div>
         </div>
     </main>
